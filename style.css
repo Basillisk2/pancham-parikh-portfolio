@@ -545,92 +545,58 @@ img {
   margin-top: 2px;
 }
 
-/* ===== Timeline / Experience ===== */
-.timeline {
-  position: relative;
+/* ===== Career Cards ===== */
+.career-grid {
   max-width: 900px;
   margin: 0 auto;
-  padding-left: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 11px;
-  top: 8px;
-  bottom: 8px;
-  width: 2px;
-  background: linear-gradient(180deg, var(--blue-400), var(--blue-200), var(--gray-200));
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 32px;
-}
-
-.timeline-item:last-child {
-  margin-bottom: 0;
-}
-
-.timeline-marker {
-  position: absolute;
-  left: -40px;
-  top: 28px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: var(--white);
-  border: 3px solid var(--blue-300);
-  z-index: 1;
-  transition: all var(--transition);
-}
-
-.timeline-item:hover .timeline-marker {
-  border-color: var(--blue-500);
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
-}
-
-.timeline-marker.current {
-  background: var(--blue-500);
-  border-color: var(--blue-500);
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
-}
-
-.timeline-content {
+.career-card {
   background: var(--white);
   border: 1px solid var(--gray-200);
   border-radius: var(--radius-xl);
-  padding: 28px 32px;
+  padding: 32px 36px;
   transition: all var(--transition);
   position: relative;
 }
 
-.timeline-content:hover {
+.career-card:hover {
   box-shadow: var(--shadow-lg);
   border-color: var(--blue-200);
 }
 
-.timeline-badge {
-  display: inline-flex;
+.career-current {
+  border-left: 4px solid var(--blue-500);
+  background: linear-gradient(135deg, var(--white), var(--blue-50));
+}
+
+.career-card-header {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 6px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
   margin-bottom: 12px;
 }
 
-.current-badge {
+.career-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   color: var(--blue-600);
   background: var(--blue-50);
-  padding: 4px 12px;
+  padding: 5px 14px;
   border-radius: 20px;
   border: 1px solid var(--blue-200);
 }
 
-.current-badge i {
-  font-size: 0.5rem;
+.career-badge i {
+  font-size: 0.45rem;
   animation: pulse 2s infinite;
 }
 
@@ -639,92 +605,37 @@ img {
   50% { opacity: 0.4; }
 }
 
-.timeline-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 10px;
-}
-
-.timeline-header h3 {
-  font-size: 1.15rem;
-  color: var(--gray-900);
-  font-weight: 700;
-}
-
-.timeline-company {
-  font-size: 0.9rem;
-  color: var(--blue-600);
-  font-weight: 500;
-  margin-top: 4px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.timeline-company i {
-  font-size: 0.75rem;
-  color: var(--gray-400);
-}
-
-.timeline-date {
+.career-date {
   font-size: 0.82rem;
   color: var(--gray-400);
+  font-weight: 600;
+}
+
+.career-card h3 {
+  font-size: 1.25rem;
+  color: var(--gray-900);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.career-org {
+  font-size: 0.95rem;
+  color: var(--blue-600);
   font-weight: 500;
-  white-space: nowrap;
-  flex-shrink: 0;
-  margin-top: 4px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  margin-bottom: 16px;
 }
 
-.timeline-date i {
-  font-size: 0.75rem;
-}
-
-.timeline-summary {
-  font-size: 0.9rem;
-  color: var(--gray-500);
-  font-style: italic;
-  margin-bottom: 14px;
-  line-height: 1.5;
-}
-
-.timeline-details {
-  list-style: none;
-  padding: 0;
-}
-
-.timeline-details li {
-  font-size: 0.88rem;
+.career-desc {
+  font-size: 0.92rem;
   color: var(--gray-600);
-  padding: 6px 0 6px 20px;
-  position: relative;
-  line-height: 1.55;
+  line-height: 1.7;
+  margin-bottom: 20px;
 }
 
-.timeline-details li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 14px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--blue-400);
-}
-
-.timeline-details li strong {
-  color: var(--gray-800);
-}
-
-.timeline-tags {
+.career-tags {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
-  margin-top: 16px;
   padding-top: 16px;
   border-top: 1px solid var(--gray-100);
 }
@@ -1141,23 +1052,8 @@ img {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .timeline {
-    padding-left: 28px;
-  }
-
-  .timeline-marker {
-    left: -28px;
-    width: 12px;
-    height: 12px;
-  }
-
-  .timeline-content {
-    padding: 20px;
-  }
-
-  .timeline-header {
-    flex-direction: column;
-    gap: 4px;
+  .career-card {
+    padding: 24px 20px;
   }
 
   .expertise-grid {

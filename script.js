@@ -44,7 +44,7 @@ const observer = new IntersectionObserver((entries) => {
 const revealSelectors = [
   '.highlight-card',
   '.stat',
-  '.timeline-item',
+  '.career-card',
   '.expertise-card',
   '.education-card',
   '.contact-card',
