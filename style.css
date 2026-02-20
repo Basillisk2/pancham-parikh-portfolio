@@ -126,6 +126,7 @@ img {
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center 15%;
   border: 2px solid var(--blue-200);
 }
 
@@ -334,7 +335,8 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 20%;
+  image-rendering: auto;
 }
 
 .hero-image-accent {
